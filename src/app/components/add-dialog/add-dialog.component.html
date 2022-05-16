@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add new element</h1>
+<form #form="ngForm">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="data.name" name="name" required>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Select STATUS</mat-label>
+      <mat-select [(value)]="selectedStatus" required>
+        <mat-option value="ACTIVE">ACTIVE</mat-option>
+        <mat-option value="DISABLED">DISABLED</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="data.description" name="description" required>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions class="buttons">
+    <button mat-button (click)="save()" [disabled]="form.invalid || selectedStatus === undefined">Save</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+  </div>
+</form>
